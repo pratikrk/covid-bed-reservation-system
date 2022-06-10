@@ -99,14 +99,14 @@ def home():
 
 @app.route("/trigers")
 def trigers():
-    query=Trig.query.all() 
+    #query=Trig.query.all() 
     return render_template("trigers.html",query=query)
 
 
 @app.route('/signup',methods=['POST','GET'])
 def signup():
     if request.method=="POST":
-        srfid=request.form.get('srf')
+        '''srfid=request.form.get('srf')
         email=request.form.get('email')
         dob=request.form.get('dob')
         # print(srfid,email,dob)
@@ -117,8 +117,8 @@ def signup():
             flash("Email or srif is already taken","warning")
             return render_template("usersignup.html")
         new_user=db.engine.execute(f"INSERT INTO `user` (`srfid`,`email`,`dob`) VALUES ('{srfid}','{email}','{encpassword}') ")
-                
-        flash("SignUp Success Please Login","success")
+             
+        flash("SignUp Success Please Login","success")  ''' 
         return render_template("userlogin.html")
 
     return render_template("usersignup.html")
@@ -127,7 +127,7 @@ def signup():
 @app.route('/login',methods=['POST','GET'])
 def login():
     if request.method=="POST":
-        srfid=request.form.get('srf')
+         '''  srfid=request.form.get('srf')
         dob=request.form.get('dob')
         user=User.query.filter_by(srfid=srfid).first()
         if user and check_password_hash(user.dob,dob):
@@ -137,14 +137,14 @@ def login():
         else:
             flash("Invalid Credentials","danger")
             return render_template("userlogin.html")
-
+  ''' 
 
     return render_template("userlogin.html")
 
 @app.route('/hospitallogin',methods=['POST','GET'])
 def hospitallogin():
     if request.method=="POST":
-        email=request.form.get('email')
+         '''  email=request.form.get('email')
         password=request.form.get('password')
         user=Hospitaluser.query.filter_by(email=email).first()
         if user and check_password_hash(user.password,password):
@@ -154,7 +154,7 @@ def hospitallogin():
         else:
             flash("Invalid Credentials","danger")
             return render_template("hospitallogin.html")
-
+  ''' 
 
     return render_template("hospitallogin.html")
 
@@ -162,7 +162,7 @@ def hospitallogin():
 def admin():
  
     if request.method=="POST":
-        username=request.form.get('username')
+        '''   username=request.form.get('username')
         password=request.form.get('password')
         if(username==params['user'] and password==params['password']):
             session['user']=username
@@ -170,7 +170,7 @@ def admin():
             return render_template("addHosUser.html")
         else:
             flash("Invalid Credentials","danger")
-
+  ''' 
     return render_template("admin.html")
 
 @app.route('/logout')
@@ -188,7 +188,7 @@ def hospitalUser():
     if('user' in session and session['user']==params['user']):
       
         if request.method=="POST":
-            hcode=request.form.get('hcode')
+             '''  hcode=request.form.get('hcode')
             email=request.form.get('email')
             password=request.form.get('password')        
             encpassword=generate_password_hash(password)  
@@ -203,8 +203,8 @@ def hospitalUser():
            
             #mail.send_message('COVID CARE CENTER',sender=params['gmail-user'],recipients=[email],body=f"Welcome thanks for choosing us\nYour Login Credentials Are:\n Email Address: {email}\nPassword: {password}\n\nHospital Code {hcode}\n\n Do not share your password\n\n\nThank You..." )
 
-            flash("Data Sent and Inserted Successfully","warning")
-            return render_template("addHosUser.html")
+            flash("Data Sent and Inserted Successfully","warning")  
+            return render_template("addHosUser.html")   ''' 
     else:
         flash("Login and try Again","warning")
         return render_template("addHosUser.html")
