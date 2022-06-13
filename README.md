@@ -3,7 +3,7 @@
 This Portal Can Be used to Reserve Bed For Covid Patients
 
 ## Project Title :
-Covid Centre Locator And Bed reservation System For Users
+Covid Bed Reservation System on Located Centre For Users
 
 ## Problem Statement :
 Bed Management in this pandemic has become an issue that almost all of the families of covid patients face. But by using the latest technology this problem can be solved, The main reason for this problem is hospitals not having a proper portal for managing beds. so my solution to this problem Is that i have Created Databse Webframe In Which Hospital And user can login from our website and user can book their bed slot on this portal. 
